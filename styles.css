@@ -1224,7 +1224,7 @@ h1, h2, h3, h4 {
 
 @media (prefers-reduced-motion: no-preference) {
   .fade-in {
-    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .fade-in.visible {
@@ -1232,25 +1232,7 @@ h1, h2, h3, h4 {
     transform: translateY(0);
   }
 
-  /* --- Stagger delays for cards --- */
-  .services-grid .service-card:nth-child(2) { transition-delay: 0.1s; }
-  .services-grid .service-card:nth-child(3) { transition-delay: 0.2s; }
-  .services-grid .service-card:nth-child(4) { transition-delay: 0.3s; }
-  .services-grid .service-card:nth-child(5) { transition-delay: 0.4s; }
-  .services-grid .service-card:nth-child(6) { transition-delay: 0.5s; }
-
-  .gallery-grid .gallery-item:nth-child(2) { transition-delay: 0.1s; }
-  .gallery-grid .gallery-item:nth-child(3) { transition-delay: 0.2s; }
-  .gallery-grid .gallery-item:nth-child(4) { transition-delay: 0.3s; }
-  .gallery-grid .gallery-item:nth-child(5) { transition-delay: 0.4s; }
-  .gallery-grid .gallery-item:nth-child(6) { transition-delay: 0.5s; }
-
-  .testimonials-grid .testimonial-card:nth-child(2) { transition-delay: 0.15s; }
-  .testimonials-grid .testimonial-card:nth-child(3) { transition-delay: 0.3s; }
-
-  .why-grid .why-card:nth-child(2) { transition-delay: 0.15s; }
-  .why-grid .why-card:nth-child(3) { transition-delay: 0.3s; }
-  .why-grid .why-card:nth-child(4) { transition-delay: 0.45s; }
+  /* Stagger handled by JS — 250ms per sibling */
 
   /* --- Hero Animations --- */
   @keyframes hero-zoom-out {

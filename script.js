@@ -69,13 +69,17 @@
     var fadeEls = document.querySelectorAll('.fade-in');
 
     if ('IntersectionObserver' in window) {
-      var revealIndex = 0;
       var observer = new IntersectionObserver(
         function (entries) {
-          entries.forEach(function (entry, index) {
+          entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-              var delay = Math.min(revealIndex * 150, 600);
-              revealIndex++;
+              // Find sibling index for stagger
+              var parent = entry.target.parentElement;
+              var siblings = Array.from(parent.children).filter(function (c) {
+                return c.classList.contains('fade-in');
+              });
+              var index = siblings.indexOf(entry.target);
+              var delay = index * 250; // 250ms between each sibling
               setTimeout(function () {
                 entry.target.classList.add('visible');
               }, delay);
@@ -83,7 +87,7 @@
             }
           });
         },
-        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
       );
 
       fadeEls.forEach(function (el) {
