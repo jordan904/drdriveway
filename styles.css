@@ -1184,7 +1184,7 @@ h1, h2, h3, h4 {
 
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track {
-    animation: marquee-scroll 12s linear infinite;
+    animation: marquee-scroll 25s linear infinite;
   }
 }
 
@@ -1203,7 +1203,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
   .marquee-track {
-    animation-duration: 8s;
+    animation-duration: 18s;
   }
 }
 
