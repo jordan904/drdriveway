@@ -50,6 +50,16 @@
         document.body.style.overflow = '';
       });
     });
+
+    // Close menu on outside click
+    document.addEventListener('click', function (e) {
+      if (!header.contains(e.target) && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   // --- Scroll-triggered fade-in animations with stagger ---
@@ -79,6 +89,12 @@
       fadeEls.forEach(function (el) {
         observer.observe(el);
       });
+
+      // Also observe footer for reveal
+      var footer = document.querySelector('.footer');
+      if (footer) {
+        observer.observe(footer);
+      }
     } else {
       // Fallback: show everything
       fadeEls.forEach(function (el) {
@@ -109,6 +125,7 @@
         } else {
           el.textContent = target + suffix;
           el.classList.add('counted');
+          el.classList.add('stat-bounce');
         }
       }
 
